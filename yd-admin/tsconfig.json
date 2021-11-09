@@ -1,7 +1,9 @@
 {
     "compilerOptions": {
+        "lib": ["ES6","DOM"],
+        "target": "ES6",
         "noImplicitAny": true,
-        "noImplicitUseStrict": true,
-        "noImplicitThis": true
+        "noImplicitThis": true,
+        "strict": true
     }
 }
