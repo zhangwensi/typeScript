@@ -34,7 +34,7 @@ function identity<T extends LengthWise>(args:T):T {
     console.log(args.length)
     return args
 }
-
+0
 const niu = identity<string>('jjjjj')
 
 class Gener<T> {
@@ -46,3 +46,42 @@ myGener.name = 30
 myGener.add = (x,y)=>{
     return x+y
 }
+
+// 重载
+function getDate<T>(value:T):T {
+    return value
+}
+
+const rr = this.getDate<number>(2)
+const rr3 = this.getDate<string>('sss')
+
+
+// 接口
+interface clockCs {
+    new (hour:number,day:number):clockInterface
+}
+interface clockInterface {
+    tick():void;
+}
+
+class digtialClock implements clockInterface {
+    public tick(): void {
+        console.log('ddddd');      
+    }    
+}
+
+class amiClock implements clockInterface {
+    public tick(): void {
+        console.log('ssssss');
+    }
+    
+}
+
+function createClock(ctor: clockCs,hours:number,minute:number): clockInterface {
+    return new ctor(hours,minute)
+}
+
+const dig1 = createClock(digtialClock,12,30)
+const dig2 = createClock(amiClock,14,50)
+dig1.tick()
+dig2.tick()
